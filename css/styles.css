@@ -1,0 +1,595 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /*reset para REMS 62.5% = 10px de 16px que es el standard*/
+}
+
+*,
+*:before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+}
+
+
+/*Globales*/
+
+img {
+    max-width: 100%;
+}
+
+.contenedor {
+    width: 95%;
+    max-width: 120rem;
+    /*= 1200px*/
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 2;
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 3.4rem;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+h4 {
+    font-size: 2.6rem;
+}
+
+
+/*Utilidades*/
+
+.seccion {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.fw-300 {
+    font-weight: 300;
+}
+
+.centrar-texto {
+    text-align: center;
+}
+
+.d-block {
+    display: block!important;
+    /*recordemos que si hay dos atributos 
+    ejm:display (en la clase .d-block y en .boton) ponemos !important
+    para darle prioridad al primero que le ponemos eso. */
+}
+
+.contenido-centrado {
+    max-width: 800px;
+}
+
+
+/* Botones */
+
+.boton {
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.8rem;
+    padding: 1rem 3rem;
+    /*le da un margen dentro de texto*/
+    margin-top: 3rem;
+    /*le da un margen fuera del texto*/
+    display: inline-block;
+    /*Las Imagenes y los enlances por default son 
+                           Display:Inline por lo tanto si queremos cambiar el ancho 
+                           o el margin tenemos que cambiarlo a otro display 
+                           por ejm: display: inline-block o display: block*/
+    text-align: center;
+    border: none;
+    /*se aplico cuando se hizo el boton enviar de contacto*/
+    display: block;
+    flex: 0 0 100%;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        display: inline-block;
+        flex: 0 0 auto;
+    }
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+.boton-amarillo {
+    background-color: #e08709;
+}
+
+.boton-verde {
+    background-color: #71b100;
+}
+
+
+/*Header*/
+
+.site-header {
+    background-color: #333333;
+    padding: 1rem 0 3rem 0;
+}
+
+
+/*para darle las mismas propiedades a dos
+clases la hacemos de la siguiente manera*/
+
+.site-header.inicio {
+    background-image: url(../img/header.jpg);
+    /*para poner la imagen de fondo*/
+    background-position: center center;
+    /* para posicionar la imagen en este caso en el CENTRO*/
+    background-size: cover;
+    /*ocupar el tamaño de la imagen y cover para que ponga la imagen completa*/
+    height: 100vh;
+    /*vh significa que cubrira la altura de la pantalla*/
+    min-height: 60rem;
+    /*le indicamos que al minimizar la pagina que muestre la imagen en un tamaño de 600px*/
+}
+
+.contenido-header {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .contenido-header {
+        text-align: left;
+    }
+}
+
+.contenido-header h1 {
+    color: #ffffff;
+    padding-bottom: 2rem;
+    max-width: 60rem;
+    line-height: 2;
+}
+
+.barra {
+    padding-top: 3rem;
+}
+
+@media (min-width: 768px) {
+    .barra {
+        display: flex;
+        justify-content: space-between;
+        /*alinea de manera horizontal*/
+        align-items: center;
+        /*alinea de manera vertical*/
+    }
+}
+
+
+/*navegacion*/
+
+
+/*la "a" a la par de la clase es seleccionar los elementos 
+para no ponerles las clases a cada una en el html*/
+
+.navegacion a {
+    color: white;
+    text-decoration: none;
+    /*elimina la linea de abajo*/
+    font-size: 2.2rem;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .navegacion a {
+        display: inline-block;
+        margin-right: 2rem;
+        font-size: 1.8rem;
+    }
+    .navegacion a:last-of-type {
+        margin: 0;
+    }
+}
+
+
+/*hover es un pseudo-selector*/
+
+.navegacion a:hover {
+    color: #71b100;
+}
+
+
+/*MOBILE MENU*/
+
+.mobile-menu img {
+    width: 5rem;
+}
+
+@media (min-width: 768px) {
+    .mobile-menu {
+        display: none;
+    }
+}
+
+.navegacion:target {
+    display: block;
+}
+
+.navegacion {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .navegacion {
+        display: block;
+    }
+}
+
+
+/*iconos nosotros */
+
+@media (min-width: 768px) {
+    .iconos-nosotros {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.icono {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .icono {
+        flex-basis: calc(33.3% - 1rem);
+        /*de manera porcentual para ocuparlo luego con responsive*/
+    }
+}
+
+.icono h3 {
+    text-transform: uppercase;
+}
+
+
+/*Anuncios*/
+
+@media (min-width: 768px) {
+    .contenedor-anuncios {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        /*por defecto es nowrap para que no haga nada de lo que indica flex-shrink,pero en este caso si queremos que lo haga asi que ponemos WRAP;*/
+    }
+}
+
+.anuncio {
+    border: 1px solid #b5b5b5;
+    /*width:1px, style:solid y color:,podemos hacerlo asi de junto o separado*/
+    background-color: #f5f5f5;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .anuncio {
+        flex: 0 0 calc(33.3% - 1rem);
+        /*flex-grow: 0 ; flex-shrink: 0; flex-basis:calc(33.3% - 1rem);*/
+        /*flex-grow: 0; si le damos 1 el contenido crecera,si le damos en 0 no crece.
+flex-shrink: 0; normalmente por defecto flex-shrink es igual a 1 para que respete el flex-basis ,sino queremos que respete le damos igual a cero;
+flex-basis: calc(33.3% - 1rem);*/
+    }
+}
+
+.contenido-anuncio {
+    padding: 2rem/*si solo ponemos 2rem ,se entiende que es el tamaño para top,right,bottom y left*/
+}
+
+.contenido-anuncio h3,
+.contenido-anuncio p {
+    margin: 0;
+}
+
+.precio {
+    color: #71b100;
+    font-weight: 700;
+    /*p por default el tamaño es de 400
+          y el font-weight es de 700*/
+}
+
+.iconos-caracteristicas {
+    list-style: none;
+    /*las listas les ponen una viñeta por default,en este caso la quitamos con NONE*/
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex: 1;
+    /*para que crezca,esto es para anuncio.html*/
+    max-width: 500px;
+    /*esto se hizo para anuncio.html*/
+}
+
+.iconos-caracteristicas li {
+    /*flex: 1;*/
+    display: flex;
+}
+
+.iconos-caracteristicas li img {
+    margin-right: 2rem;
+}
+
+.ver-todas {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/** Contacto Home **/
+
+.imagen-contacto {
+    background-image: url(../img/encuentra.jpg);
+    background-position: center center;
+    background-size: cover;
+    height: 40rem;
+    display: flex;
+    align-items: center;
+    /*centra verticar*/
+}
+
+.contenido-contacto {
+    flex: 0 0 95%;
+    /*detecta cuanto tamaño hay en el lugar y lo divide entre los elementos que hay*/
+    color: #ffffff;
+}
+
+.contenido-contacto p {
+    font-size: 2rem;
+}
+
+
+/*seccion Inferior*/
+
+@media (min-width: 768px) {
+    .seccion-inferior {
+        display: flex;
+        justify-content: space-between;
+    }
+    .seccion-inferior .blog {
+        flex-basis: 60%;
+    }
+    .seccion-inferior .testimoniales {
+        flex-basis: calc(40% - 2rem);
+    }
+}
+
+.entrada-blog {
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .entrada-blog {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+
+/*el last of tipe me indica que 
+    al ultimo que le dio la clase la asigne un parametro*/
+
+.entrada-blog :last-of-type {
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .entrada-blog .imagen {
+        flex-basis: 40%;
+    }
+    .entrada-blog .texto-entrada {
+        flex-basis: calc(60% - 3rem);
+    }
+}
+
+.texto-entrada a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.texto-entrada h4 {
+    margin: 0;
+    line-height: 1.4;
+}
+
+
+/*::after se le conoce como pseudo elementos,
+    luego utilizamos content para escribir lo que
+    queremos lo cual se pondra luego del h4 y lo hara
+    en todos los h4 donde se ocupe la clase
+     y por lo tanto no se puede seleccion*/
+
+.texto-entrada h4::after {
+    content: "";
+    display: block;
+    width: 15rem;
+    height: .5rem;
+    background-color: #71b100;
+    margin-top: 1rem;
+}
+
+.texto-entrada span {
+    color: #e08709;
+}
+
+
+/*Testimoniales*/
+
+.testimonial {
+    background-color: #71b100;
+    font-size: 2.4rem;
+    padding: 2rem;
+    color: #ffffff;
+    border-radius: 2rem;
+    /*esquinas redondas*/
+}
+
+.testimonial p {
+    text-align: right;
+}
+
+.testimonial blockquote::before {
+    content: "";
+    background-image: url(../img/comilla.svg);
+    width: 4rem;
+    height: 4rem;
+    position: absolute;
+    /* POSICION HIJO*/
+    left: -2rem;
+    /*teniendo la posicion absolute
+                       podemos usar left,top,bottom,right*/
+}
+
+.testimonial blockquote {
+    position: relative;
+    /*POSICION PADRE.para posicionar la imagen donde queremos
+         sino ponemos esto no podremos colocarla en el lugar que queremos
+         y si tambien se mostrara en la parte del comienzo de la pagina*/
+    padding-left: 5rem;
+    font-weight: 300;
+}
+
+
+/* Footer */
+
+.site-footer {
+    background-color: #333333;
+    margin: 0;
+}
+
+.contenedor-footer {
+    padding: 3rem 0rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .contenedor-footer {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.site-footer nav {
+    display: none;
+    /*Ocultar la barra de navegacion*/
+}
+
+@media (min-width: 768px) {
+    .site-footer nav {
+        display: block;
+    }
+}
+
+.copyright {
+    margin: 0;
+    color: #ffffff;
+}
+
+
+/** INTERNAS **/
+
+
+/*Nosotros*/
+
+@media (min-width: 768px) {
+    .contenido-nosotros {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /**con Dislay Grid tambien podemos trabajar como flex
+        pero en porcentaje 50% para la imagen y 50% para el texto 
+        por columna*/
+        grid-column-gap: 2rem;
+        /*crea la separacion como margin*/
+    }
+}
+
+.texto-nosotros blockquote {
+    font-weight: 900;
+    font-size: 2rem;
+    margin: 0;
+    padding: 3rem 0;
+}
+
+
+/*Anuncio*/
+
+.resumen-propiedad {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*alinea verticalmente*/
+}
+
+
+/* Contacto */
+
+form p {
+    font-size: 1.2rem;
+    color: #4f4f4f;
+    margin: 0;
+}
+
+legend {
+    font-size: 2 rem;
+    color: #4f4f4f;
+}
+
+label {
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+input:not([type="submit"]),
+textarea,
+select {
+    display: block;
+    padding: 1rem;
+    width: 100%;
+    background-color: #e1e1e1;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 1rem;
+}
+
+input[type="radio"] {
+    width: auto;
+    margin: 0;
+}
+
+select {
+    /*no se utiliza la el webkit-appearance (prefijo)pero 
+    en este caso si se usara ya que ayuda a obtener 
+    los atributos de la clase*/
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+textarea {
+    height: 20rem;
+}
+
+.forma-contacto {
+    max-width: 30rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
